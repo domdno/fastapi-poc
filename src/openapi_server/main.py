@@ -15,6 +15,7 @@
 
 from fastapi import FastAPI
 
+from openapi_server.apis.default_api import router as EventConsumerRouter
 from openapi_server.apis.consent_api import router as ConsentApiRouter
 from openapi_server.apis.demographic_api import router as DemographicApiRouter
 from openapi_server.apis.enrollment_api import router as EnrollmentApiRouter
@@ -29,6 +30,7 @@ app = FastAPI(
     version="0.7.1",
 )
 
+app.include_router(EventConsumerRouter)
 app.include_router(ConsentApiRouter)
 app.include_router(DemographicApiRouter)
 app.include_router(EnrollmentApiRouter)
