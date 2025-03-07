@@ -2,7 +2,7 @@
 
 from typing import ClassVar, Dict, List, Tuple  # noqa: F401
 
-from pydantic import Field
+from pydantic import Field # type: ignore
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
 from openapi_server.models.consents_update_event import ConsentsUpdateEvent
