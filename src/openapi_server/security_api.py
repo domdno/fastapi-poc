@@ -18,10 +18,10 @@ from fastapi.security.api_key import APIKeyCookie, APIKeyHeader, APIKeyQuery  # 
 
 from openapi_server.models.extra_models import TokenModel
 
-
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def get_token_oauth2DEV(
-    security_scopes: SecurityScopes, token: str = Depends(oauth2_)
+    security_scopes: SecurityScopes, token: str = Depends(oauth2_scheme)
 ) -> TokenModel:
     """
     Validate and decode token.
@@ -54,7 +54,7 @@ def validate_scope_oauth2DEV(
 
 
 def get_token_oauth2QA(
-    security_scopes: SecurityScopes, token: str = Depends(oauth2_)
+    security_scopes: SecurityScopes, token: str = Depends(oauth2_scheme)
 ) -> TokenModel:
     """
     Validate and decode token.
@@ -87,7 +87,7 @@ def validate_scope_oauth2QA(
 
 
 def get_token_oauth2PROD(
-    security_scopes: SecurityScopes, token: str = Depends(oauth2_)
+    security_scopes: SecurityScopes, token: str = Depends(oauth2_scheme)
 ) -> TokenModel:
     """
     Validate and decode token.
