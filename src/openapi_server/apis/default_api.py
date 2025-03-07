@@ -7,7 +7,7 @@ import pkgutil
 from openapi_server.apis.default_api_base import BaseDefaultApi
 import openapi_server.impl
 
-from fastapi import (  # noqa: F401
+from fastapi import (  # noqa: F401 # type: ignore
     APIRouter,
     Body,
     Cookie,
@@ -56,7 +56,7 @@ for _, name, _ in pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + "."):
     response_model_by_alias=True,
 )
 async def brand_enrollment_created_post(
-    enrollment_event:  = Body(None, description="Notifies when a new patient registers for first time into a brand or re-enrolls to a brand via the brand website."),
+    enrollment_event  = Body(None, description="Notifies when a new patient registers for first time into a brand or re-enrolls to a brand via the brand website."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -80,7 +80,7 @@ async def brand_enrollment_created_post(
     response_model_by_alias=True,
 )
 async def brand_enrollment_updated_post(
-    enrollment_event:  = Body(None, description="Notifies when a patient needs to update their brand enrollment information (e.g., demographic, consents, insurance, start/stop services, etc.)"),
+    enrollment_event  = Body(None, description="Notifies when a patient needs to update their brand enrollment information (e.g., demographic, consents, insurance, start/stop services, etc.)"),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -104,7 +104,7 @@ async def brand_enrollment_updated_post(
     response_model_by_alias=True,
 )
 async def brand_pace_updated_post(
-    pace_update_event:  = Body(None, description="Notifies the patient interaction results with a Clinical Educator (for participating patients)."),
+    pace_update_event  = Body(None, description="Notifies the patient interaction results with a Clinical Educator (for participating patients)."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -128,7 +128,7 @@ async def brand_pace_updated_post(
     response_model_by_alias=True,
 )
 async def patient_consents_updated_post(
-    consents_update_event:  = Body(None, description="Notifies when a patient has updated their consents to a brand program."),
+    consents_update_event  = Body(None, description="Notifies when a patient has updated their consents to a brand program."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -152,7 +152,7 @@ async def patient_consents_updated_post(
     response_model_by_alias=True,
 )
 async def patient_demographics_deleted_post(
-    demographic_delete_event:  = Body(None, description="Notifies when a patient has requested their data to be forgotten."),
+    demographic_delete_event  = Body(None, description="Notifies when a patient has requested their data to be forgotten."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -176,7 +176,7 @@ async def patient_demographics_deleted_post(
     response_model_by_alias=True,
 )
 async def patient_demographics_merged_post(
-    demographic_merge_event:  = Body(None, description="Notifies when a manual data stewardship process finds two records match the same patient."),
+    demographic_merge_event  = Body(None, description="Notifies when a manual data stewardship process finds two records match the same patient."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -200,7 +200,7 @@ async def patient_demographics_merged_post(
     response_model_by_alias=True,
 )
 async def patient_demographics_un_merged_post(
-    demographic_un_merge_event:  = Body(None, description="Notfies when a manual data stewardship process found one record represents two different patients."),
+    demographic_un_merge_event  = Body(None, description="Notfies when a manual data stewardship process found one record represents two different patients."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -224,7 +224,7 @@ async def patient_demographics_un_merged_post(
     response_model_by_alias=True,
 )
 async def patient_demographics_updated_post(
-    demographic_update_event:  = Body(None, description="Notifies when a patient (or their legal caregiver or guardian) has updated their demographic information (across all Boehringer Ingelheim brands)."),
+    demographic_update_event  = Body(None, description="Notifies when a patient (or their legal caregiver or guardian) has updated their demographic information (across all Boehringer Ingelheim brands)."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")
@@ -248,7 +248,7 @@ async def patient_demographics_updated_post(
     response_model_by_alias=True,
 )
 async def prospect_consents_updated_post(
-    consents_update_event:  = Body(None, description="Notifies when a non-patient has updated their consents to a brand signup."),
+    consents_update_event  = Body(None, description="Notifies when a non-patient has updated their consents to a brand signup."),
 ) -> None:
     if not BaseDefaultApi.subclasses:
         raise HTTPException(status_code=500, detail="Not implemented")

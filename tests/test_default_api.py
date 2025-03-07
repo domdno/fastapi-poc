@@ -2,7 +2,6 @@
 
 from fastapi.testclient import TestClient
 
-
 from openapi_server.models.consents_update_event import ConsentsUpdateEvent  # noqa: F401
 from openapi_server.models.demographic_delete_event import DemographicDeleteEvent  # noqa: F401
 from openapi_server.models.demographic_merge_event import DemographicMergeEvent  # noqa: F401
@@ -17,20 +16,20 @@ def test_brand_enrollment_created_post(client: TestClient):
 
     
     """
-    enrollment_event = openapi_server.EnrollmentEvent()
+    enrollment_event = EnrollmentEvent()
 
     headers = {
     }
     # uncomment below to make a request
-    #response = client.request(
-    #    "POST",
-    #    "/brand.enrollment.created",
-    #    headers=headers,
-    #    json=enrollment_event,
-    #)
+    response = client.request(
+       "POST",
+       "/brand.enrollment.created",
+       headers=headers,
+       json=enrollment_event,
+    )
 
     # uncomment below to assert the status code of the HTTP response
-    #assert response.status_code == 200
+    assert response.status_code == 200
 
 
 def test_brand_enrollment_updated_post(client: TestClient):
@@ -38,7 +37,7 @@ def test_brand_enrollment_updated_post(client: TestClient):
 
     
     """
-    enrollment_event = openapi_server.EnrollmentEvent()
+    enrollment_event = EnrollmentEvent()
 
     headers = {
     }
@@ -59,7 +58,7 @@ def test_brand_pace_updated_post(client: TestClient):
 
     
     """
-    pace_update_event = openapi_server.PaceUpdateEvent()
+    pace_update_event = PaceUpdateEvent()
 
     headers = {
     }
@@ -80,7 +79,7 @@ def test_patient_consents_updated_post(client: TestClient):
 
     
     """
-    consents_update_event = openapi_server.ConsentsUpdateEvent()
+    consents_update_event = ConsentsUpdateEvent()
 
     headers = {
     }
@@ -101,7 +100,7 @@ def test_patient_demographics_deleted_post(client: TestClient):
 
     
     """
-    demographic_delete_event = openapi_server.DemographicDeleteEvent()
+    demographic_delete_event = DemographicDeleteEvent()
 
     headers = {
     }
@@ -122,7 +121,7 @@ def test_patient_demographics_merged_post(client: TestClient):
 
     
     """
-    demographic_merge_event = openapi_server.DemographicMergeEvent()
+    demographic_merge_event = DemographicMergeEvent()
 
     headers = {
     }
@@ -143,7 +142,7 @@ def test_patient_demographics_un_merged_post(client: TestClient):
 
     
     """
-    demographic_un_merge_event = openapi_server.DemographicUnMergeEvent()
+    demographic_un_merge_event = DemographicUnMergeEvent()
 
     headers = {
     }
@@ -164,7 +163,7 @@ def test_patient_demographics_updated_post(client: TestClient):
 
     
     """
-    demographic_update_event = openapi_server.DemographicUpdateEvent()
+    demographic_update_event = DemographicUpdateEvent()
 
     headers = {
     }
@@ -185,7 +184,7 @@ def test_prospect_consents_updated_post(client: TestClient):
 
     
     """
-    consents_update_event = openapi_server.ConsentsUpdateEvent()
+    consents_update_event = ConsentsUpdateEvent()
 
     headers = {
     }
