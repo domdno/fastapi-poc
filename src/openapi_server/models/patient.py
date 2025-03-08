@@ -26,6 +26,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from openapi_server.models.alternate_contact import AlternateContact
+from openapi_server.models.caregiver import Caregiver
 from openapi_server.models.communication import Communication
 try:
     from typing import Self
@@ -53,7 +54,7 @@ class Patient(BaseModel):
     country_code: Annotated[str, Field(min_length=2, strict=True, max_length=2)] = Field(description="Country of residency. Code list as defined in ISO 3166-1 alpha-2 codes.", alias="countryCode")
     postal_code: Annotated[str, Field(min_length=3, strict=True, max_length=10)] = Field(description="Address postal code. Refer to the brand documentation for more format details.", alias="postalCode")
     enriched_indicator: Optional[StrictStr] = Field(default=None, description="READ ONLY. When present in a patient demographic (MDM) update event, indicates if the address has been standarized.   Values:   ERROR : The address is invalid and not corrected.  NOT_VALIDATED : The address is not validated by address doctor.  VALID: The address is corrected and is valid.  ", alias="enrichedIndicator")
-    legal_caregiver_or_guardian: Optional[Any] = Field(default=None, alias="legalCaregiverOrGuardian")
+    legal_caregiver_or_guardian: Optional[Caregiver] = Field(default=None, alias="legalCaregiverOrGuardian")
     alternate_contact: Optional[AlternateContact] = Field(default=None, alias="alternateContact")
     __properties: ClassVar[List[str]] = ["id", "firstName", "lastName", "birthDate", "gender", "preferredLanguageCode", "namePrefixCode", "nameSuffixCode", "middleName", "communications", "addressLine1", "addressLine2", "city", "stateOrProvinceCode", "countryCode", "postalCode", "enrichedIndicator", "legalCaregiverOrGuardian", "alternateContact"]
 
